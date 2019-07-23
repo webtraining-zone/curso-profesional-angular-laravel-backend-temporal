@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// CRUD: Create (POST), Read (GET), Update (PUT), Delete (DELETE)
+Route::post('/projects', 'ProjectsController@createProject');
+Route::delete('/projects/{id}', 'ProjectsController@deleteProject');
+Route::get('/projects', 'ProjectsController@getAll')->name('projects.index');
+Route::get('/projects/{id}', 'ProjectsController@getProjectById');
+
+
+// @TODO: Auth
+// JWT
